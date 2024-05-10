@@ -1,0 +1,84 @@
+Pratical 2 CSV
+
+import pandas as pd
+df = pd.read_csv('Student_Marks.csv')
+print("Our dataset ")
+print(df)
+
+JSON
+
+import pandas as pd
+data = pd.read_json('dataset.json')
+print(data)
+
+Perform basic data pre-processing tasks such as handling missing
+values and outliers.
+
+import pandas as pd
+df = pd.read_csv('titanic.csv') print(df)
+df.head(10)
+print("Dataset after filling NA values with 0 : ")
+df2=df.fillna(value=0)
+print(df2)
+
+# Dropping Na values using dropna()
+import pandas as pd
+df = pd.read_csv(‘titanic.csv’)
+print(df)
+df.head(10)
+print(“Dataset after dropping NA values:”)
+df.dropna(inplace = True)
+print(df)
+
+
+Manipulate and transform data using functions like filtering, sorting,
+and grouping
+
+import pandas as pd
+iris = pd.read_csv('Iris.csv')
+setosa = iris[iris['Species'] == 'setosa']
+print("Setosa samples:")
+print(setosa.head())
+sorted_iris = iris.sort_values(by='SepalLengthCm', ascending=False)
+print("\nSorted iris dataset:")
+print(sorted_iris.head())
+grouped_species = iris.groupby('Species').mean()
+print("\nMean measurements for each species:")
+print(grouped_species)
+
+Apply feature-scaling techniques like standardization and
+normalization to numerical features.
+
+import pandas as pd
+import matplotlib.pyplot as plt
+from sklearn.preprocessing
+import MinMaxScaler, StandardScaler
+df = pd.read_csv('wine.csv', header=None, usecols=[0, 1, 2],
+skiprows=1) df.columns = ['classlabel', 'Alcohol', 'Malic Acid']
+print("Original DataFrame:")
+print(df) scaling=MinMaxScaler()
+scaled_value=scaling.fit_transform(df[['Alcohol','Malic
+Acid']])
+df[['Alcohol','Malic Acid']]=scaled_value
+print("\n Dataframe after MinMax Scaling")
+print(df)
+scaling=StandardScaler()
+scaled_standardvalue=scaling.fit_transform(df[['Alcohol','Mali
+c Acid']]) df[['Alcohol','Malic Acid']]=scaled_standardvalue
+print("\n Dataframe after Standard Scaling")
+print(df)
+
+Perform feature Dummification to convert categorical variables into
+numerical representatio
+
+import pandas as pd
+iris=pd.read_csv("Iris.csv")
+print(iris)
+from sklearn.preprocessing import LabelEncoder
+le=LabelEncoder()
+iris['code']=le.fit_transform(iris.Species)
+print(iris)
+
+
+
+
